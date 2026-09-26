@@ -5,7 +5,7 @@ understanding large and complex codebases through visual code architecture.
 
 ### 📜 Certificate
 
-![Hackathon Certificate](./public/certificate.png)
+![Hackathon Certificate](./public/certificate.pdf)
 
 ### 📊 Source Lens Cover Page 
 
@@ -13,7 +13,7 @@ understanding large and complex codebases through visual code architecture.
 
 ### 📊 Project Presentation Cover Page 
 
-![Project Presentation Cover Page ](./public/PresentationCover.png)
+![Project Presentation Cover Page ](./public/PresentationCoverPage.png)
 
 ### 📊 Project Presentation  
 
