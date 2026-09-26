@@ -1,32 +1,21 @@
-# React + TypeScript + Vite
+## 🏆 Hackathon Achievement
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+SourceLens was developed as a hackathon project to solve the challenge of
+understanding large and complex codebases through visual code architecture.
 
-Currently, two official plugins are available:
+### 📜 Certificate
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+![Hackathon Certificate](./assets/certificate.png)
 
-## React Compiler
+### 📊 Source Lens Cover Page 
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+![Project Presentation](./assets/SourceLensPage.png)
 
-## Expanding the Oxlint configuration
+### 📊 Project Presentation Cover Page 
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+![Project Presentation](./assets/PresentationCover.png)
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+### 📊 Project Presentation  
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+![Project Presentation](./assets/Presentation1.pdf)
+
