@@ -1,0 +1,3616 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #05070d;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 70px;
+  padding: 120px 7% 80px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 75% 45%,
+      rgba(76, 110, 255, 0.12),
+      transparent 32%
+    ),
+    #05070d;
+}
+
+/* Background glow */
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  right: -180px;
+  top: 20%;
+  border-radius: 50%;
+  background: rgba(67, 97, 238, 0.08);
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero-content {
+  width: 50%;
+  max-width: 700px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 14px;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #aeb8d0;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  margin-bottom: 28px;
+}
+
+.hero-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #7c8cff;
+  box-shadow: 0 0 12px #7c8cff;
+}
+
+.hero h1 {
+  font-size: clamp(48px, 6vw, 75px);
+  line-height: 0.98;
+  letter-spacing: -4px;
+  font-weight: 700;
+  max-width: 760px;
+}
+
+.hero h1 span {
+  display: block;
+  background: linear-gradient(90deg,#ffffff 0%,#8797ff 55%,#6678ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  margin-top: 28px;
+  max-width: 620px;
+  color: #8e98ad;
+  font-size: 20px;
+  line-height: 1.75;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 38px;
+}
+
+.hero-primary-btn,
+.hero-secondary-btn {
+  border: none;
+  cursor: pointer;
+  padding: 15px 22px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.hero-primary-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  background: #5367ff;
+  box-shadow: 0 10px 35px rgba(83, 103, 255, 0.25);
+}
+
+.hero-primary-btn span {
+  font-size: 19px;
+  transition: transform 0.25s ease;
+}
+
+.hero-primary-btn:hover {
+  transform: translateY(-2px);
+  background: #6476ff;
+}
+
+.hero-primary-btn:hover span {
+  transform: translateX(4px);
+}
+
+.hero-secondary-btn {
+  color: #c8cede;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* =========================
+   STATS
+========================= */
+
+.hero-stats {
+  display: flex;
+  gap: 35px;
+  margin-top: 55px;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.hero-stat strong {
+  color: #6879ff;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.hero-stat span {
+  color: whitesmoke;
+  font-size: 14px;
+}
+
+/* =========================
+   ARCHITECTURE VISUAL
+========================= */
+
+.hero-visual {
+  width: 50%;
+  max-width: 500px;
+  position: relative;
+  z-index: 2;
+}
+
+.architecture-window {
+  width: 100%;
+  min-height: 510px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  background: rgba(9, 12, 21, 0.9);
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.5),
+    inset 0 1px rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+  transform: perspective(1200px) rotateY(-4deg) rotateX(2deg);
+  transition: transform 0.4s ease;
+}
+
+.architecture-window:hover {
+  transform: perspective(1200px) rotateY(0deg) rotateX(0deg);
+}
+
+/* Window header */
+
+.window-header {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.window-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.span1 {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: greenyellow;
+}
+
+.span2 {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: red;
+}
+
+.span3 {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: yellow;
+}
+
+.window-title {
+  margin-left: auto;
+  margin-right: auto;
+  color: whitesmoke;
+  font-size: 12px;
+  font-family: monospace;
+}
+
+/* Architecture map */
+
+.architecture-map {
+  position: relative;
+  height: 460px;
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+  background-size: 32px 32px;
+}
+
+/* Labels */
+
+.map-label {
+  position: absolute;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: whitesmoke;
+}
+
+.frontend-label {
+  left: 45px;
+  top: 42px;
+}
+
+.backend-label {
+  right: 55px;
+  top: 42px;
+}
+
+/* Nodes */
+
+.map-node {
+  position: absolute;
+  width: 145px;
+  min-height: 58px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: rgba(16, 20, 33, 0.95);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+.map-node strong {
+  display: block;
+  color: #e7eaff;
+  font-size: 12px;
+}
+
+.map-node small {
+  display: block;
+  margin-top: 4px;
+  color: #68738b;
+  font-size: 9px;
+}
+
+.node-icon {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 7px;
+  background: rgba(91, 106, 255, 0.12);
+  border: 1px solid rgba(111, 126, 255, 0.2);
+  color: #8794ff;
+  font-family: monospace;
+  font-size: 9px;
+  font-weight: bold;
+}
+
+.node-app {
+  left: 35px;
+  top: 80px;
+}
+
+.node-api {
+  left: 70px;
+  bottom: 80px;
+}
+
+.node-server {
+  right: 35px;
+  top: 80px;
+}
+
+.node-service {
+  right: 70px;
+  bottom: 80px;
+}
+
+/* Core */
+
+.map-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 125px;
+  height: 125px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    circle,
+    rgba(81, 101, 255, 0.25),
+    rgba(16, 20, 35, 0.95) 65%
+  );
+  border: 1px solid rgba(104, 120, 255, 0.45);
+  box-shadow:
+    0 0 40px rgba(76, 95, 255, 0.16),
+    inset 0 0 30px rgba(76, 95, 255, 0.08);
+  z-index: 3;
+}
+
+.map-core span {
+  color: #7180ff;
+  font-size: 8px;
+  letter-spacing: 2px;
+  margin-bottom: 7px;
+}
+
+.map-core strong {
+  color: #ffffff;
+  font-size: 12px;
+}
+
+/* Connections */
+
+.connection {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(110, 126, 255, 0.7),
+    transparent
+  );
+  transform-origin: left center;
+  z-index: 1;
+}
+
+.connection-one {
+  width: 210px;
+  left: 160px;
+  top: 155px;
+  transform: rotate(18deg);
+}
+
+.connection-two {
+  width: 190px;
+  left: 160px;
+  top: 290px;
+  transform: rotate(-18deg);
+}
+
+.connection-three {
+  width: 210px;
+  right: 160px;
+  top: 155px;
+  transform: rotate(162deg);
+}
+
+.connection-four {
+  width: 190px;
+  right: 160px;
+  top: 290px;
+  transform: rotate(198deg);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+  .hero {
+    gap: 40px;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .hero h1 {
+    font-size: 58px;
+  }
+
+  .architecture-window {
+    min-height: 440px;
+  }
+
+  .architecture-map {
+    height: 390px;
+  }
+}
+
+@media (max-width: 850px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 100px;
+  }
+
+  .hero-content,
+  .hero-visual {
+    width: 100%;
+    max-width: none;
+  }
+
+  .hero-visual {
+    margin-top: 30px;
+  }
+
+  .architecture-window {
+    transform: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 90px 20px 60px;
+  }
+
+  .hero h1 {
+    font-size: 45px;
+    letter-spacing: -2.5px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-primary-btn,
+  .hero-secondary-btn {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-stats {
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .architecture-window {
+    min-height: 400px;
+  }
+
+  .architecture-map {
+    height: 350px;
+  }
+
+  .map-node {
+    width: 125px;
+  }
+
+  .node-app {
+    left: 15px;
+  }
+
+  .node-api {
+    left: 15px;
+  }
+
+  .node-server {
+    right: 15px;
+  }
+
+  .node-service {
+    right: 15px;
+  }
+
+  .map-core {
+    width: 100px;
+    height: 100px;
+  }
+
+  .connection {
+    opacity: 0.5;
+  }
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 80px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  background: rgba(5, 7, 13, 0.78);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Logo */
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+}
+
+.logo-mark {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border: 3px solid rgba(116, 132, 255, 0.5);
+  border-radius: 10px;
+  color: #8794ff;
+  background: rgba(91, 106, 255, 0.1);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  box-shadow: 0 0 20px rgba(83, 103, 255, 0.1);
+}
+
+.logo-text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+}
+
+.logo-text span {
+  color: #8992a7;
+}
+
+.logo-text strong {
+  color: #ffffff;
+}
+
+/* Navigation links */
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+}
+
+.navbar-links a {
+  position: relative;
+  color: #858fa5;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.25s ease;
+}
+
+.navbar-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0;
+  height: 1px;
+  background: #7382ff;
+  transition: width 0.25s ease;
+}
+
+.navbar-links a:hover {
+  color: #ffffff;
+}
+
+.navbar-links a:hover::after {
+  width: 100%;
+}
+
+/* Launch button */
+
+.navbar-button {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.045);
+  color: #dfe3f1;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.navbar-button span {
+  color: #7d8bff;
+  font-size: 16px;
+  transition: transform 0.25s ease;
+}
+
+.navbar-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(126, 140, 255, 0.35);
+}
+
+.navbar-button:hover span {
+  transform: translateX(3px);
+}
+
+/* =========================
+   NAVBAR RESPONSIVE
+========================= */
+
+@media (max-width: 850px) {
+  .navbar {
+    padding: 0 5%;
+  }
+
+  .navbar-links {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 650px) {
+  .navbar {
+    height: 68px;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-button {
+    padding: 9px 12px;
+  }
+
+  .logo-text {
+    font-size: 12px;
+  }
+}
+
+/* =====================================================
+   SOURCE LENS DASHBOARD
+===================================================== */
+
+.dashboard {
+  min-height: 100vh;
+  padding: 125px 7% 70px;
+  background:radial-gradient(circle at 80% 15%,rgba(82, 101, 255, 0.08),transparent 28%),#05070d;
+}
+
+/* =========================
+   DASHBOARD HEADER
+========================= */
+
+.dashboard-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.dashboard-label {
+  margin-bottom: 15px;
+  color: #7180ff;
+  font-family: monospace;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.dashboard-header h1 {
+  color: #ffffff;
+  font-size: clamp(38px, 5vw, 62px);
+  line-height: 1;
+  letter-spacing: -3px;
+}
+
+.dashboard-header h1 span {
+  color: #7382ff;
+}
+
+.dashboard-header p {
+  max-width: 610px;
+  margin-top: 5px;
+  color: #858fa5;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* =========================
+   SELECT PROJECT BUTTON
+========================= */
+
+.select-project-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+
+  padding: 14px 20px;
+
+  border: 2px solid rgba(111, 126, 255, 0.4);
+  border-radius: 9px;
+
+  background: #5367ff;
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: 0 12px 35px rgba(83, 103, 255, 0.18);
+  transition: 0.25s ease;
+}
+
+.select-project-btn span {
+  font-size: 19px;
+  line-height: 1;
+}
+
+.select-project-btn:hover {
+  background: #6476ff;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   PROJECT STATUS
+========================= */
+
+.project-status {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  min-height: 95px;
+  padding: 18px 22px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.025);
+  margin-bottom: 20px;
+}
+
+.status-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 2px solid rgba(111, 126, 255, 0.25);
+  background: rgba(83, 103, 255, 0.08);
+  color: #7382ff;
+  font-size: 24px;
+}
+
+.status-content {
+  flex: 1;
+}
+
+.status-content strong {
+  display: block;
+  color: #dfe3ef;
+  font-size: 16px;
+  margin-top: 2px;
+}
+
+.status-content p {
+  margin-top: 6px;
+  color: #68738a;
+  font-size: 14px;
+}
+
+.status-badge {
+  padding: 12px 22px;
+  border: 2px solid rgba(111, 126, 255, 0.25);
+  border-radius: 8px;
+  color: #7382ff;
+  background: rgba(83, 103, 255, 0.08);
+  font-size: 14px;
+}
+
+/* =========================
+   STAT CARDS
+========================= */
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  min-height: 125px;
+  padding: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.025);
+  transition:border-color 0.25s ease,transform 0.25s ease;
+}
+
+.stat-card:hover {
+  border-color: rgba(111, 126, 255, 0.22);
+  transform: translateY(-2px);
+}
+
+.stat-card span {
+  display: block;
+  color: #5f6980;
+  font-family: monospace;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+}
+
+.stat-card strong {
+  display: block;
+  margin-top: 14px;
+  color: #e9ebf5;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.stat-card small {
+  display: block;
+  margin-top: 5px;
+  color: #626d82;
+  font-size: 12px;
+}
+
+/* =========================
+   DASHBOARD GRID
+========================= */
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
+}
+
+/* =========================
+   PANELS
+========================= */
+
+.architecture-panel,
+.files-panel {
+  min-height: 480px;
+  border: 2px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.025);
+  overflow: hidden;
+}
+
+.panel-header {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 17px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.panel-header span {
+  display: block;
+  margin-bottom: 6px;
+  color: #5f6980;
+  font-family: monospace;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+}
+
+.panel-header h2 {
+  color: #dfe3ef;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.panel-action {
+  width: 100px;
+  height: 40px;
+  border: 2px solid rgba(111, 126, 255, 0.25);
+  border-radius: 0px 8px 0px 0px;
+  background: rgba(83, 103, 255, 0.08);;
+  color: #7280ef;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.panel-action:hover {
+  color: #9ba6ff;
+}
+
+/* =========================
+   EMPTY ARCHITECTURE
+========================= */
+
+.empty-architecture {
+  min-height: 480px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px
+    );
+
+  background-size: 30px 30px;
+}
+
+.architecture-core {
+  width: 90px;
+  height: 90px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  border: 2px solid rgba(111, 126, 255, 0.35);
+  background: radial-gradient(
+    circle,
+    rgba(83, 103, 255, 0.18),
+    rgba(83, 103, 255, 0.02) 70%
+  );
+  box-shadow:
+    0 0 50px rgba(83, 103, 255, 0.12),
+    inset 0 0 25px rgba(83, 103, 255, 0.08);
+  color: #7786ff;
+  font-family: monospace;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.empty-architecture h3,
+.empty-files h3 {
+  color: #b9c0d1;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.empty-architecture p,
+.empty-files p {
+  max-width: 300px;
+  margin-top: 8px;
+  color: #606b80;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* =========================
+   EMPTY FILES
+========================= */
+
+.empty-files {
+  height: 403px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-file-icon {
+  width: 58px;
+  height: 58px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 11px;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  color: #66728a;
+
+  font-family: monospace;
+  font-size: 22px;
+}
+
+/* =========================
+   DASHBOARD RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+  .dashboard {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .dashboard {
+    padding: 105px 20px 50px;
+  }
+
+  .dashboard-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dashboard-header h1 {
+    font-size: 43px;
+  }
+
+  .select-project-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .project-status {
+    align-items: flex-start;
+  }
+
+  .status-badge {
+    display: none;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .project-status {
+    padding: 16px;
+  }
+
+  .architecture-panel,
+  .files-panel {
+    min-height: 420px;
+  }
+
+  .empty-architecture,
+  .empty-files {
+    height: 343px;
+  }
+}
+
+/* =========================================================
+   SOURCE LENS - CODEBASE FLOWCHART
+   ========================================================= */
+
+.source-flowchart {
+  width: 100%;
+  height: 100%;
+  min-height: 430px;
+  padding: 35px;
+  overflow: auto;
+  position: relative;
+  background:
+    linear-gradient(rgba(91, 110, 180, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(91, 110, 180, 0.07) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+/* Scrollbar */
+
+.source-flowchart::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.source-flowchart::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.source-flowchart::-webkit-scrollbar-thumb {
+  background: rgba(110, 125, 255, 0.25);
+  border-radius: 20px;
+}
+
+.source-flowchart::-webkit-scrollbar-thumb:hover {
+  background: rgba(110, 125, 255, 0.5);
+}
+
+
+/* =========================================================
+   ROOT PROJECT NODE
+   ========================================================= */
+
+.flow-root-node {
+  width: 250px;
+  min-height: 72px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 14px 18px;
+
+  border: 1px solid rgba(108, 124, 255, 0.65);
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(34, 39, 74, 0.95),
+      rgba(12, 15, 27, 0.98)
+    );
+
+  box-shadow:
+    0 0 0 1px rgba(100, 120, 255, 0.05),
+    0 0 30px rgba(76, 95, 255, 0.12);
+
+  position: relative;
+  z-index: 5;
+}
+
+.flow-root-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: rgba(92, 108, 255, 0.15);
+  border: 1px solid rgba(110, 125, 255, 0.5);
+
+  color: #91a0ff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.flow-root-node strong {
+  display: block;
+
+  color: #f4f6ff;
+  font-size: 14px;
+  font-weight: 700;
+
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.flow-root-node span {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #7180a8;
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   ROOT CONNECTION
+   ========================================================= */
+
+.root-connector {
+  width: 1px;
+  height: 32px;
+
+  margin: 0 auto;
+
+  position: relative;
+
+  background: rgba(105, 122, 255, 0.7);
+
+  z-index: 5;
+}
+
+.root-connector::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: -1px;
+  left: 50%;
+
+  width: 6px;
+  height: 6px;
+
+  transform:
+    translateX(-50%)
+    rotate(45deg);
+
+  border-right: 1px solid #7384ff;
+  border-bottom: 1px solid #7384ff;
+
+  background: transparent;
+}
+
+
+/* =========================================================
+   MAIN FLOW
+   ========================================================= */
+
+.flow-tree {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  gap: 24px;
+
+  min-width: max-content;
+
+  padding: 0 20px 40px;
+}
+
+.flow-root-child {
+  position: relative;
+
+  min-width: 190px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-flow-line {
+  width: 1px;
+  height: 22px;
+
+  background: rgba(105, 122, 255, 0.45);
+
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   FOLDER NODE
+   ========================================================= */
+
+.flow-folder-group {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  min-width: 180px;
+}
+
+.flow-folder-node {
+  width: 180px;
+  min-height: 64px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 12px 14px;
+
+  border: 1px solid rgba(105, 122, 255, 0.35);
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(27, 32, 57, 0.96),
+      rgba(13, 16, 28, 0.98)
+    );
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.18);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.flow-folder-node:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(120, 135, 255, 0.8);
+
+  box-shadow:
+    0 0 25px rgba(92, 110, 255, 0.14);
+}
+
+.flow-folder-icon {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 8px;
+
+  background: rgba(91, 109, 255, 0.13);
+  border: 1px solid rgba(100, 120, 255, 0.3);
+
+  color: #8291ff;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.flow-folder-node strong {
+  display: block;
+
+  color: #e9ecff;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.flow-folder-node span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #68779f;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   CHILD CONNECTION
+   ========================================================= */
+
+.flow-children {
+  width: 100%;
+
+  margin-top: 20px;
+
+  padding-left: 18px;
+
+  border-left: 1px solid rgba(105, 122, 255, 0.25);
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.flow-child {
+  position: relative;
+
+  padding-left: 14px;
+}
+
+.flow-connector {
+  position: absolute;
+
+  left: -18px;
+  top: 50%;
+
+  width: 30px;
+  height: 1px;
+
+  background: rgba(105, 122, 255, 0.55);
+
+  box-shadow:
+    0 0 6px rgba(105, 122, 255, 0.15);
+}
+
+/* Arrow pointing toward the file */
+
+.flow-connector::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  transform: translateY(-50%) rotate(-45deg);
+  border-right: 1px solid #8190ff;
+  border-bottom: 1px solid #8190ff;
+}
+
+
+/* =========================================================
+   FILE NODE
+   ========================================================= */
+
+.flow-file-node {
+  width: 175px;
+  min-height: 50px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 9px 11px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+
+  background: rgba(10, 13, 23, 0.9);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.flow-file-node:hover {
+  transform: translateX(4px);
+
+  border-color: rgba(110, 125, 255, 0.55);
+
+  background: rgba(28, 33, 57, 0.95);
+}
+
+
+/* =========================================================
+   FILE EXTENSION BADGE
+   ========================================================= */
+
+.flow-file-icon {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: rgba(108, 124, 255, 0.12);
+  border: 1px solid rgba(108, 124, 255, 0.3);
+
+  color: #8d9bff;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.3px;
+}
+
+.flow-file-info {
+  min-width: 0;
+}
+
+.flow-file-info strong {
+  display: block;
+
+  color: #e9ecf7;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.flow-file-info span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #5f6c91;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   FILE PANEL
+   ========================================================= */
+
+.file-panel-summary {
+  width: 100%;
+
+  padding: 5px 20px 15px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.file-panel-summary strong {
+  color: #edf0ff;
+
+  font-size: 14px;
+}
+
+.file-panel-summary span {
+  color: #68779e;
+
+  font-size: 11px;
+}
+
+.file-preview-list {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+
+  padding: 0 20px;
+
+  max-height: 300px;
+
+  overflow-y: auto;
+}
+
+.file-preview-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.file-preview-list::-webkit-scrollbar-thumb {
+  background: rgba(100, 120, 255, 0.25);
+  border-radius: 20px;
+}
+
+.file-preview-item {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 9px 11px;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.file-preview-item span {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 6px;
+
+  background: rgba(100, 120, 255, 0.1);
+
+  color: #8291ff;
+
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.file-preview-item strong {
+  color: #cfd5eb;
+
+  font-size: 11px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .source-flowchart {
+    padding: 25px 15px;
+  }
+
+  .flow-tree {
+    justify-content: flex-start;
+  }
+
+  .flow-root-node {
+    margin-left: 20px;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .source-flowchart {
+    min-height: 400px;
+  }
+
+  .flow-root-node {
+    width: 220px;
+  }
+
+  .flow-folder-node {
+    width: 165px;
+  }
+
+  .flow-file-node {
+    width: 160px;
+  }
+
+}
+
+/* =========================================
+   SOURCE LENS - ARCHITECTURE ZOOM
+========================================= */
+
+.source-flowchart {
+  position: relative;
+}
+
+
+/* =========================================
+   ZOOM CONTROLS
+========================================= */
+
+.architecture-zoom-controls {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  top: auto;
+  right: auto;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+  border: 1px solid rgba(110, 125, 255, 0.28);
+  border-radius: 9px;
+  background: rgba(9, 12, 23, 0.94);
+  backdrop-filter: blur(12px);
+}
+
+
+/* =========================================
+   ZOOM BUTTONS
+========================================= */
+
+.architecture-zoom-controls button {
+  width: 30px;
+  height: 30px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(110, 125, 255, 0.25);
+
+  border-radius: 6px;
+
+  background: rgba(100, 120, 255, 0.08);
+
+  color: #91a0ff;
+
+  font-size: 20px;
+  font-weight: 500;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.architecture-zoom-controls button:hover {
+  background: rgba(100, 120, 255, 0.18);
+
+  border-color: rgba(110, 125, 255, 0.55);
+
+  color: #ffffff;
+}
+
+
+.architecture-zoom-controls button:active {
+  transform: scale(0.94);
+}
+
+
+/* =========================================
+   ZOOM PERCENTAGE
+========================================= */
+
+.architecture-zoom-controls span {
+  width: 48px;
+
+  text-align: center;
+
+  color: #7f8caf;
+
+  font-family: monospace;
+
+  font-size: 10px;
+}
+
+
+/* =========================================
+   ZOOM CONTENT
+========================================= */
+
+.architecture-zoom-content {
+  width: max-content;
+
+  min-width: 100%;
+
+  margin: 0 auto;
+
+  transform-origin: top center;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .architecture-zoom-controls {
+    top: 10px;
+    right: 10px;
+  }
+
+  .architecture-zoom-controls button {
+    width: 28px;
+    height: 28px;
+  }
+
+  .architecture-zoom-controls span {
+    width: 42px;
+  }
+
+}
+
+/* =========================================================
+   SOURCE LENS - TOP LEVEL ARCHITECTURE ALIGNMENT
+   ========================================================= */
+
+/* Main architecture canvas */
+.source-flowchart {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 430px;
+
+  overflow: auto;
+
+  box-sizing: border-box;
+
+  padding: 35px 40px 60px;
+
+  background:
+    linear-gradient(
+      rgba(91, 110, 180, 0.07) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(91, 110, 180, 0.07) 1px,
+      transparent 1px
+    );
+
+  background-size: 34px 34px;
+}
+
+
+/* =========================================================
+   ROOT PROJECT
+   ========================================================= */
+
+.flow-root-node {
+  width: 250px;
+  min-height: 72px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  box-sizing: border-box;
+
+  position: relative;
+  z-index: 5;
+}
+
+
+/* =========================================================
+   ROOT → TREE CONNECTION
+   ========================================================= */
+
+.root-connector {
+  width: 1px;
+  height: 35px;
+
+  margin: 0 auto;
+
+  position: relative;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(105, 122, 255, 0.8),
+    rgba(105, 122, 255, 0.3)
+  );
+}
+
+.root-connector::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: -1px;
+  left: 50%;
+
+  width: 7px;
+  height: 7px;
+
+  transform:
+    translateX(-50%)
+    rotate(45deg);
+
+  border-right: 1px solid #7384ff;
+  border-bottom: 1px solid #7384ff;
+}
+
+
+/* =========================================================
+   TOP LEVEL TREE
+   ========================================================= */
+
+.flow-tree {
+  position: relative;
+
+  width: max-content;
+  min-width: 100%;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: row;
+
+  justify-content: center;
+  align-items: flex-start;
+
+  gap: 24px;
+
+  padding: 0 40px 40px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HORIZONTAL ARCHITECTURE TRUNK
+   ========================================================= */
+
+.flow-tree::before {
+  content: "";
+
+  position: absolute;
+
+  /*
+    The trunk sits exactly at the bottom
+    of the branch connector lines.
+  */
+  top: 22px;
+
+  /*
+    Each branch is 180px wide.
+    This keeps the horizontal line
+    starting/ending around the first/last
+    branch center.
+  */
+  left: calc(40px + 90px);
+  right: calc(40px + 90px);
+
+  height: 1px;
+
+  background: rgba(105, 122, 255, 0.45);
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   EACH TOP LEVEL BRANCH
+   ========================================================= */
+
+.flow-root-child {
+  position: relative;
+
+  width: 180px;
+  min-width: 180px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   VERTICAL BRANCH
+   ========================================================= */
+
+.main-flow-line {
+  width: 1px;
+  height: 22px;
+
+  flex-shrink: 0;
+
+  margin: 0;
+
+  background: rgba(105, 122, 255, 0.55);
+
+  position: relative;
+}
+
+
+/*
+   Small connection point where the
+   vertical branch meets the horizontal trunk.
+*/
+.main-flow-line::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 5px;
+  height: 5px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background: #7384ff;
+
+  box-shadow:
+    0 0 8px rgba(115, 132, 255, 0.4);
+}
+
+
+/* =========================================================
+   TOP LEVEL FOLDER
+   ========================================================= */
+
+.flow-root-child > .flow-folder-group {
+  width: 180px;
+  min-width: 180px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* =========================================================
+   TOP LEVEL FILE
+   ========================================================= */
+
+.flow-root-child > .flow-file-node {
+  width: 175px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   FOLDER NODE
+   ========================================================= */
+
+.flow-folder-node {
+  width: 180px;
+  min-height: 64px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 12px 14px;
+}
+
+
+/* =========================================================
+   CHILDREN INSIDE FOLDER
+   ========================================================= */
+
+.flow-children {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  margin-top: 20px;
+
+  padding-left: 18px;
+
+  border-left: 1px solid rgba(105, 122, 255, 0.25);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 12px;
+}
+
+
+/* =========================================================
+   INDIVIDUAL CHILD
+   ========================================================= */
+
+.flow-child {
+  position: relative;
+
+  width: 175px;
+  min-height: 50px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0;
+}
+
+
+/* =========================================================
+   CHILD CONNECTOR
+   ========================================================= */
+
+.flow-connector {
+  position: absolute;
+
+  left: -18px;
+  top: 50%;
+
+  width: 30px;
+  height: 1px;
+
+  transform: translateY(-50%);
+
+  background: rgba(105, 122, 255, 0.35);
+}
+
+
+/* Arrow head */
+.flow-connector::after {
+  content: "";
+
+  position: absolute;
+
+  right: -1px;
+  top: 50%;
+
+  width: 6px;
+  height: 6px;
+
+  transform:
+    translateY(-50%)
+    rotate(45deg);
+
+  border-top: 1px solid #7384ff;
+  border-right: 1px solid #7384ff;
+}
+
+
+/* =========================================================
+   FILE NODE
+   ========================================================= */
+
+.flow-file-node {
+  width: 175px;
+  min-height: 50px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 9px 11px;
+}
+
+
+/* =========================================================
+   ZOOM CONTROLS
+   KEEP BOTTOM LEFT
+   ========================================================= */
+
+.architecture-zoom-controls {
+  position: absolute;
+
+  left: 16px;
+  bottom: 16px;
+
+  top: auto;
+  right: auto;
+
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  padding: 5px;
+
+  border: 1px solid rgba(110, 125, 255, 0.28);
+
+  border-radius: 9px;
+
+  background: rgba(9, 12, 23, 0.94);
+
+  backdrop-filter: blur(12px);
+}
+
+
+/* =========================================================
+   ZOOM BUTTONS
+   ========================================================= */
+
+.architecture-zoom-controls button {
+  width: 30px;
+  height: 30px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(110, 125, 255, 0.25);
+
+  border-radius: 6px;
+
+  background: rgba(100, 120, 255, 0.08);
+
+  color: #91a0ff;
+
+  font-size: 20px;
+  font-weight: 500;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.architecture-zoom-controls button:hover {
+  background: rgba(100, 120, 255, 0.18);
+
+  border-color: rgba(110, 125, 255, 0.55);
+
+  color: #ffffff;
+}
+
+
+.architecture-zoom-controls span {
+  width: 48px;
+
+  text-align: center;
+
+  color: #7f8caf;
+
+  font-family: monospace;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   ZOOM CONTENT
+   ========================================================= */
+
+.architecture-zoom-content {
+  width: max-content;
+  min-width: 100%;
+
+  margin: 0 auto;
+
+  transform-origin: top center;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .flow-tree {
+    justify-content: flex-start;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .source-flowchart {
+    padding: 25px 20px 60px;
+  }
+
+  .flow-tree {
+    gap: 18px;
+
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .flow-tree::before {
+    left: calc(25px + 90px);
+    right: calc(25px + 90px);
+  }
+
+}
+
+/* =========================================================
+   FIX ROOT → TOP LEVEL ARCHITECTURE CONNECTION
+========================================================= */
+
+.root-connector {
+  width: 1px;
+  height: 22px;
+
+  margin: 0 auto;
+
+  position: relative;
+
+  background: rgba(105, 122, 255, 0.65);
+}
+
+
+/* =========================================================
+   TOP LEVEL ARCHITECTURE TRUNK
+========================================================= */
+
+.flow-tree {
+  position: relative;
+
+  width: max-content;
+  min-width: 100%;
+
+  display: flex;
+  flex-direction: row;
+
+  justify-content: center;
+  align-items: flex-start;
+
+  gap: 24px;
+
+  padding: 0 40px 40px;
+
+  box-sizing: border-box;
+}
+
+
+/* Horizontal line connecting ALL top-level branches */
+
+.flow-tree::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  /*
+    Center of first and last branch.
+  */
+  left: calc(40px + 90px);
+  right: calc(40px + 90px);
+
+  height: 1px;
+
+  background: rgba(105, 122, 255, 0.55);
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   TOP LEVEL BRANCH
+========================================================= */
+
+.flow-root-child {
+  position: relative;
+
+  width: 180px;
+  min-width: 180px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  z-index: 2;
+}
+
+
+/* Vertical line from horizontal trunk to node */
+
+.main-flow-line {
+  width: 1px;
+  height: 22px;
+
+  margin: 0;
+
+  background: rgba(105, 122, 255, 0.55);
+
+  position: relative;
+
+  z-index: 3;
+}
+
+
+/* Small connection point */
+
+.main-flow-line::before {
+  content: "";
+
+  position: absolute;
+
+  top: -2px;
+  left: 50%;
+
+  width: 5px;
+  height: 5px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background: #7384ff;
+
+  box-shadow:
+    0 0 8px rgba(115, 132, 255, 0.5);
+}
+
+/* =========================================
+   PROJECT STRUCTURE
+   FOLDER EXPLORER
+========================================= */
+
+.folder-explorer-container {
+  width: 100%;
+
+  margin-top: 18px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+
+  overflow-y: auto;
+
+  max-height: 350px;
+
+  padding-right: 5px;
+}
+
+
+/* =========================================
+   FOLDER ROW
+========================================= */
+
+.folder-explorer-item {
+  width: 100%;
+
+  min-height: 46px;
+
+  padding: 8px 10px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  border: 1px solid rgba(105, 122, 255, 0.10);
+
+  border-radius: 8px;
+
+  background: rgba(20, 24, 40, 0.35);
+
+  color: #dce2ff;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.folder-explorer-item:hover {
+  background: rgba(80, 100, 255, 0.08);
+
+  border-color: rgba(105, 122, 255, 0.25);
+
+  transform: translateX(2px);
+}
+
+
+.folder-explorer-item-active {
+  background: rgba(80, 100, 255, 0.10);
+
+  border-color: rgba(105, 122, 255, 0.3);
+}
+
+
+/* =========================================
+   ARROW
+========================================= */
+
+.folder-expand-icon {
+  width: 12px;
+
+  color: #7484ff;
+
+  font-size: 12px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================
+   FOLDER ICON
+========================================= */
+
+.folder-icon {
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 5px;
+
+  background: rgba(100, 120, 255, 0.10);
+
+  font-size: 14px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================
+   FOLDER NAME
+========================================= */
+
+.folder-name {
+  flex: 1;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  color: #dce2ff;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================
+   ITEM COUNT
+========================================= */
+
+.folder-count {
+  min-width: 22px;
+
+  padding: 2px 6px;
+
+  border-radius: 5px;
+
+  background: rgba(100, 120, 255, 0.08);
+
+  color: #7180b0;
+
+  font-family: monospace;
+
+  font-size: 9px;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   SUB-FOLDER AREA
+========================================= */
+
+.folder-explorer-children {
+  position: relative;
+
+  margin-top: 5px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+
+/* =========================================
+   TREE LINE
+========================================= */
+
+.folder-tree-line {
+  position: absolute;
+
+  left: -9px;
+  top: 0;
+  bottom: 0;
+
+  width: 1px;
+
+  background: rgba(105, 122, 255, 0.20);
+}
+
+
+/* =========================================
+   FILE ROW
+========================================= */
+
+.folder-file-item {
+  min-height: 40px;
+
+  padding: 7px 10px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  border: 1px solid rgba(105, 122, 255, 0.06);
+
+  border-radius: 7px;
+
+  background: rgba(8, 11, 20, 0.45);
+}
+
+
+/* =========================================
+   FILE ICON
+========================================= */
+
+.folder-file-icon {
+  width: 27px;
+  height: 27px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(105, 122, 255, 0.18);
+
+  border-radius: 6px;
+
+  background: rgba(100, 120, 255, 0.07);
+
+  color: #8090ff;
+
+  font-family: monospace;
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================
+   FILE INFORMATION
+========================================= */
+
+.folder-file-info {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+
+.folder-file-info strong {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  color: #cdd5f5;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+
+.folder-file-info span {
+  color: #596585;
+
+  font-family: monospace;
+
+  font-size: 8px;
+}
+
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+.folder-explorer-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.folder-explorer-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.folder-explorer-container::-webkit-scrollbar-thumb {
+  background: rgba(105, 122, 255, 0.25);
+
+  border-radius: 10px;
+}
+
+/* =========================================================
+   FIXED DASHBOARD PANEL HEIGHT
+   Architecture + Project Structure
+========================================================= */
+
+.dashboard-grid {
+  align-items: stretch;
+}
+
+
+/* Both panels always have the same height */
+
+.architecture-panel,
+.files-panel {
+  height: 560px;
+  min-height: 560px;
+  max-height: 560px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   ARCHITECTURE CONTENT
+========================================================= */
+
+.architecture-panel .empty-architecture {
+  height: calc(560px - 89px);
+  min-height: 0;
+  max-height: calc(560px - 89px);
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   PROJECT STRUCTURE CONTENT
+========================================================= */
+
+.files-panel .empty-files {
+  height: calc(560px - 89px);
+  min-height: 0;
+  max-height: calc(560px - 89px);
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =========================================================
+   FOLDER LIST SCROLLS INSIDE THE FIXED PANEL
+========================================================= */
+
+.folder-explorer-container {
+  flex: 1;
+
+  min-height: 0;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   PROJECT STRUCTURE - FOLDER EXPLORER
+========================================================= */
+
+.folder-explorer {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+}
+
+
+.folder-explorer-header {
+  padding: 34px 24px 22px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+
+.folder-explorer-header strong {
+  font-size: 18px;
+  color: #ffffff;
+}
+
+
+.folder-explorer-header span {
+  font-size: 13px;
+  color: #7282aa;
+}
+
+
+/* =========================================================
+   FOLDER LIST
+========================================================= */
+
+.folder-explorer-list {
+  flex: 1;
+
+  min-height: 0;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 0 10px 20px;
+}
+
+
+/* =========================================================
+   FOLDER ROW
+========================================================= */
+
+.folder-explorer-row {
+  min-height: 56px;
+
+  margin-bottom: 8px;
+
+  padding: 0 14px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  border: 1px solid rgba(100, 115, 180, 0.18);
+
+  border-radius: 10px;
+
+  background: rgba(16, 19, 31, 0.72);
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.folder-explorer-row:hover {
+  background: rgba(45, 52, 90, 0.35);
+
+  border-color: rgba(100, 115, 255, 0.4);
+}
+
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.folder-arrow {
+  width: 12px;
+
+  color: #8192ff;
+
+  font-size: 12px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   FOLDER ICON
+========================================================= */
+
+.folder-icon {
+  width: 30px;
+  height: 30px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 7px;
+
+  background: rgba(82, 101, 255, 0.1);
+
+  font-size: 17px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   FOLDER NAME
+========================================================= */
+
+.folder-explorer-row strong {
+  flex: 1;
+
+  color: #f2f4ff;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   ITEM COUNT
+========================================================= */
+
+.folder-item-count {
+  min-width: 28px;
+
+  padding: 4px 7px;
+
+  text-align: center;
+
+  border-radius: 6px;
+
+  background: rgba(65, 80, 160, 0.14);
+
+  color: #7e8ed0;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   CHILDREN
+========================================================= */
+
+.folder-explorer-children {
+  padding-top: 2px;
+  padding-bottom: 4px;
+}
+
+
+/* =========================================================
+   FILE ROW
+========================================================= */
+
+.folder-file-row {
+  min-height: 40px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 4px 12px;
+
+  color: #b8c0da;
+
+  font-size: 12px;
+}
+
+
+.folder-file-line {
+  color: #53628e;
+
+  font-family: monospace;
+}
+
+
+.folder-file-icon {
+  min-width: 30px;
+  height: 26px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(100, 115, 180, 0.2);
+
+  border-radius: 6px;
+
+  background: rgba(50, 60, 110, 0.15);
+
+  color: #8291ff;
+
+  font-family: monospace;
+
+  font-size: 9px;
+}
+
+
+.folder-file-name {
+  color: #c7cde0;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   FIXED ZOOM CONTROLS
+========================================================= */
+
+.source-flowchart {
+  position: relative;
+}
+
+
+.architecture-zoom-controls {
+  position: absolute;
+
+  left: 16px;
+  bottom: 16px;
+
+  top: auto;
+  right: auto;
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  padding: 5px;
+
+  border: 1px solid rgba(110, 125, 255, 0.28);
+
+  border-radius: 9px;
+
+  background: rgba(9, 12, 23, 0.96);
+
+  backdrop-filter: blur(12px);
+
+  -webkit-backdrop-filter: blur(12px);
+
+  transform: none !important;
+}
+
+
+.architecture-zoom-controls button {
+  width: 30px;
+  height: 30px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(110, 125, 255, 0.25);
+
+  border-radius: 6px;
+
+  background: rgba(100, 120, 255, 0.08);
+
+  color: #91a0ff;
+
+  font-size: 18px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.architecture-zoom-controls button:hover {
+  background: rgba(100, 120, 255, 0.18);
+
+  border-color: rgba(110, 125, 255, 0.55);
+
+  color: #ffffff;
+}
+
+
+.architecture-zoom-controls .zoom-percentage {
+  width: 48px;
+
+  color: #7f8caf;
+
+  font-family: monospace;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   ONLY ARCHITECTURE SCALES
+========================================================= */
+
+.architecture-zoom-content {
+  width: max-content;
+
+  min-width: 100%;
+
+  margin: 0 auto;
+
+  transform-origin: top center;
+
+  transition: transform 0.2s ease;
+}
+
+
+/* ============================================
+   SOURCE LENS ANALYSIS SUMMARY
+============================================ */
+
+.analysis-summary {
+  width: 100%;
+  padding: 10px 18px;
+  background: #11131a !important;
+  border: 1px solid #292d37 !important;
+  border-radius: 12px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #ffffff;
+  box-shadow:0 8px 25px rgba(0, 0, 0, 0.22);
+  margin-bottom: -3px;
+}
+
+
+/* ============================================
+   ROW
+============================================ */
+
+.analysis-summary-row {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 28px;
+}
+
+
+/* ============================================
+   LABEL
+============================================ */
+
+.analysis-summary-row span {
+  color: #ffffff !important;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 17px;
+  font-weight: 400;
+
+  line-height: 1.4;
+}
+
+
+/* ============================================
+   NUMBER
+============================================ */
+
+.analysis-summary-row strong {
+  color: #ffffff !important;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  line-height: 1.4;
+
+  text-align: right;
+}
+
+
+
+
+
+
+/* =========================================================
+   CREATOR PAGE
+========================================================= */
+
+.creator-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #020617;
+  color: #f8fafc;
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   MAIN SECTION
+========================================================= */
+
+.creator {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 100px 10%;
+  margin-top: 25px;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.creator-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 45% 55%;
+  align-items: center;
+  gap: 70px;
+}
+
+
+/* =========================================================
+   LEFT
+========================================================= */
+
+.creator-left {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.creator-image-wrapper {
+  width: 100%;
+  max-width: 430px;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 3px solid #7c8cff;
+  background: #0f172a;
+  box-shadow:0 30px 70px rgba(0, 0, 0, 0.55);
+}
+
+
+.creator-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   IMAGE FOOTER
+========================================================= */
+
+.creator-image-info {
+  width: 100%;
+  max-width: 430px;
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 4px 0;
+  color: white;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+/* =========================================================
+   RIGHT
+========================================================= */
+
+.creator-right {
+  width: 100%;
+  max-width: 680px;
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.creator-right h1 {
+  margin-top: 0px;
+  font-size: 86px;
+  line-height: 0.95;
+  letter-spacing: -3px;
+  font-weight: 700;
+}
+
+.creator-right h1 span {
+  color: #7c8cff;
+}
+
+/* =========================================================
+   ROLE
+========================================================= */
+
+.creator-right h2 {
+  margin: 20px 0 20px;
+  color: #cbd5e1;
+  font-size: 21px;
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.creator-right p {
+  max-width: 620px;
+  margin: 0 0 16px;
+  color: #94a3b8;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.creator-divider {
+  width: 100%;
+
+  height: 1px;
+
+  margin: 34px 0;
+
+  background: #1e293b;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.creator-skills {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 0 45px;
+}
+
+
+.creator-skill {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 14px 0;
+
+  border-bottom: 1px solid #1e293b;
+}
+
+
+.creator-skill span {
+  color: #38bdf8;
+
+  font-size: 11px;
+
+  letter-spacing: 1px;
+}
+
+
+.creator-skill strong {
+  color: #e2e8f0;
+
+  font-size: 14px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   META
+========================================================= */
+
+.creator-meta {
+  display: flex;
+
+  gap: 80px;
+
+  margin-top: 35px;
+}
+
+
+.creator-meta div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+
+.creator-meta span {
+  color: #7c8cff;
+
+  font-size: 10px;
+
+  letter-spacing: 1.8px;
+}
+
+
+.creator-meta strong {
+  color: #e2e8f0;
+
+  font-size: 14px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .creator {
+    padding: 100px 7%;
+  }
+
+  .creator-container {
+    grid-template-columns: 42% 58%;
+
+    gap: 45px;
+  }
+
+  .creator-right h1 {
+    font-size: 68px;
+  }
+
+  .creator-right h2 {
+    font-size: 18px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .creator {
+    padding: 100px 7% 70px;
+  }
+
+  .creator-container {
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+  }
+
+  .creator-left {
+    align-items: flex-start;
+  }
+
+  .creator-image-wrapper,
+  .creator-image-info {
+    max-width: 380px;
+  }
+
+  .creator-right {
+    max-width: 700px;
+  }
+
+  .creator-right h1 {
+    font-size: 64px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .creator {
+    padding: 90px 6% 60px;
+  }
+
+  .creator-container {
+    gap: 45px;
+  }
+
+  .creator-image-wrapper {
+    max-width: 330px;
+  }
+
+  .creator-right h1 {
+    font-size: 52px;
+
+    letter-spacing: -2px;
+  }
+
+  .creator-right h2 {
+    font-size: 17px;
+  }
+
+  .creator-right p {
+    font-size: 15px;
+  }
+
+  .creator-skills {
+    grid-template-columns: 1fr;
+  }
+
+  .creator-meta {
+    flex-direction: column;
+
+    gap: 22px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 375px) {
+
+  .creator {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .creator-right h1 {
+    font-size: 45px;
+  }
+
+  .creator-tag {
+    font-size: 12px;
+  }
+
+}
